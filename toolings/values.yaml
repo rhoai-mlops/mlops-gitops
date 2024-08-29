@@ -1,4 +1,28 @@
 applications:
+  # Bootstrap Project
+  - name: bootstrap
+    enabled: true
+    source: https://redhat-cop.github.io/helm-charts
+    chart_name: bootstrap-project
+    source_ref: "1.0.1"
+    values:
+      serviceaccounts: ""
+      # student is the GROUP NAME in IDM
+      bindings: &binds
+        - name: student
+          kind: Group
+          role: admin
+      namespaces:
+        - name: TEAM_NAME-mlops
+          bindings: *binds
+          operatorgroup: true
+        - name: TEAM_NAME-test
+          bindings: *binds
+          operatorgroup: true
+        - name: TEAM_NAME-stage
+          bindings: *binds
+          operatorgroup: true
+
   # Minio
   - name: minio
     enabled: true
