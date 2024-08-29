@@ -1,8 +1,6 @@
 # change source and team
-# source: https://<GIT_SERVER>/<TEAM_NAME>/mlops-gitops.git
-# team: <TEAM_NAME>
-source: https://gitlab-ce.apps.prod.rhoai.rh-aiservices-bu.com/openmusicai/mlops-gitops.git
-team: openmusicai
+source: https://<GIT_SERVER>/<TEAM_NAME>/mlops-gitops.git
+team: <TEAM_NAME>
 release: mlops
 
 applications:
