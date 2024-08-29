@@ -1,0 +1,14 @@
+# change source and team
+# source: https://<GIT_SERVER>/<TEAM_NAME>/mlops.git
+# team: <TEAM_NAME>
+source: https://gitlab-ce.apps.prod.rhoai.rh-aiservices-bu.com/openmusicai/mlops.git
+team: openmusicai
+release: mlops
+
+applications:
+  # Tooling to support CI/CD
+  - name: toolings
+    enabled: true
+    source_path: "."
+    helm_values:
+      - toolings/values.yaml

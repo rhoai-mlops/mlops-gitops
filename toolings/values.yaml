@@ -1,0 +1,11 @@
+applications:
+  # Minio
+  - name: minio
+    enabled: true
+    source: https://rhoai-mlops.github.io/mlops/
+    source_path: charts/minio
+    source_ref: "jenkins-0.0.6"
+    values:
+      buckets:
+        - name: pipelines
+        - name: models
