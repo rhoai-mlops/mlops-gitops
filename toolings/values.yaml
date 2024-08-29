@@ -2,7 +2,7 @@ applications:
   # Minio
   - name: minio
     enabled: true
-    source: https://rhoai-mlops.github.io/mlops/
+    source: https://github.com/rhoai-mlops/mlops.git
     source_path: charts/minio
     source_ref: "minio-0.0.6"
     values:
