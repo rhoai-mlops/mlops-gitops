@@ -10,3 +10,17 @@ applications:
     source_path: "."
     helm_values:
       - toolings/values.yaml
+
+  # Test App of Apps for Models
+  - name: model-deployments
+    enabled: false
+    source_path: "."
+    helm_values:
+      - test/values.yaml
+
+  # Staging App of Apps for Models
+  - name: model-deployments
+    enabled: false
+    source_path: "."
+    helm_values:
+      - stage/values.yaml
