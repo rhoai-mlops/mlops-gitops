@@ -1,1 +1,7 @@
 ---
+release: "stage"
+##############
+# Argo Apps declaration
+#############
+applications:
+  # Jukebox
