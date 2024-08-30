@@ -12,15 +12,15 @@ applications:
       - toolings/values.yaml
 
   # Test App of Apps for Models
-  - name: model-deployments
+  - name: test-app-of-models
     enabled: false
     source_path: "."
     helm_values:
-      - test/values.yaml
+      - model-deployments/test/values.yaml
 
   # Staging App of Apps for Models
-  - name: model-deployments
+  - name: stage-app-of-models
     enabled: false
     source_path: "."
     helm_values:
-      - stage/values.yaml
+      - model-deployments/stage/values.yaml
