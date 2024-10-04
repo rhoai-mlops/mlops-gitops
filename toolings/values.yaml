@@ -34,4 +34,11 @@ applications:
         - name: pipelines
         - name: models
 
+
+  # KubeFlow Model Registry
+
+
+  # Data Science Pipeline Application
+
+
   # CT Pipeline

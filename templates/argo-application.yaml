@@ -36,7 +36,7 @@ spec:
     server: {{ .cluster_api | default "https://kubernetes.default.svc" }}
   project: {{ .project | default "default" }}
   source:
-{{- if not .no_helm }}
+{{- if not .kustomize }}
     helm:
       releaseName: {{ .name }}
 {{- if .helm_values }}
@@ -47,6 +47,10 @@ spec:
       values: |
 {{- toYaml .values | nindent 8 }}
 {{- end }}
+{{- end }}
+{{- if .kustomize }}
+    kustomize:
+      namespace: {{ .destination | default (printf "%s-%s" $team $release) }}
 {{- end }}
     {{- if .source_path }}
     path: {{ .source_path | default "." }}
