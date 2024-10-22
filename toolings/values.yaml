@@ -13,13 +13,13 @@ applications:
           kind: Group
           role: admin
       namespaces:
-        - name: TEAM_NAME-mlops
+        - name: USER_NAME-mlops
           bindings: *binds
           operatorgroup: true
-        - name: TEAM_NAME-test
+        - name: USER_NAME-test
           bindings: *binds
           operatorgroup: true
-        - name: TEAM_NAME-stage
+        - name: USER_NAME-stage
           bindings: *binds
           operatorgroup: true
 

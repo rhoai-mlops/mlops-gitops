@@ -1,6 +1,6 @@
 # change source and team
-source: https://<GIT_SERVER>/<TEAM_NAME>/mlops-gitops.git
-team: <TEAM_NAME>
+source: https://<GIT_SERVER>/<USER_NAME>/mlops-gitops.git
+team: <USER_NAME>
 release: mlops
 
 applications:
