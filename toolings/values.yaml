@@ -9,8 +9,8 @@ applications:
       serviceaccounts: ""
       # student is the GROUP NAME in IDM
       bindings: &binds
-        - name: student
-          kind: Group
+        - name: USER_NAME
+          kind: User
           role: admin
       namespaces:
         - name: USER_NAME-mlops
@@ -31,7 +31,7 @@ applications:
     source_ref: "0.0.7"
     values:
       buckets:
-        - name: pipelines
+        - name: pipeline
         - name: models
 
 
@@ -42,3 +42,4 @@ applications:
 
 
   # CT Pipeline
+
