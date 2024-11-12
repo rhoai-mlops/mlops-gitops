@@ -18,9 +18,9 @@ applications:
     helm_values:
       - model-deployments/test/values.yaml
 
-  # Staging App of Apps for Models
-  - name: stage-app-of-models
+  # Production App of Apps for Models
+  - name: prod-app-of-models
     enabled: false
     source_path: "."
     helm_values:
-      - model-deployments/stage/values.yaml
+      - model-deployments/prod/values.yaml
