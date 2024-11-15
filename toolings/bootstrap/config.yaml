@@ -1,0 +1,3 @@
+namespaces:
+  - name: <USER_NAME>-test
+  - name: <USER_NAME>-prod
