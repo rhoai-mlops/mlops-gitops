@@ -41,8 +41,8 @@ spec:
         - helm:
             valueFiles:
               - $app-values/toolings/{{ .path.basename }}/config.yaml 
-          path: {{ .chart_name }} 
-          repoURL: {{ .repo_url | default "https://gitea-gitea.apps.cluster-vx2f5.vx2f5.sandbox784.opentlc.com/user14/mlops-helmcharts.git" }} 
+          path: '{{ .chart_name }}'
+          repoURL: '{{ .repo_url }}'
           targetRevision: main
       syncPolicy:
         automated:
