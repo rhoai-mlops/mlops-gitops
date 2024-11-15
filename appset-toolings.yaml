@@ -28,7 +28,7 @@ spec:
       - path: toolings/**/config.yaml
   template:
     metadata:
-      name: "{{ .name }}" 
+      name: "{{ .path.basename }}"
     spec:
       destination:
         server: https://kubernetes.default.svc
@@ -42,7 +42,7 @@ spec:
             valueFiles:
               - $app-values/toolings/{{ .path.basename }}/config.yaml 
           path: {{ .chart_name }} 
-          repoURL: {{ .repo_url }} 
+          repoURL: {{ .repo_url | default "https://gitea-gitea.apps.cluster-vx2f5.vx2f5.sandbox784.opentlc.com/user14/mlops-helmcharts.git" }} 
           targetRevision: main
       syncPolicy:
         automated:
