@@ -23,7 +23,7 @@ spec:
   generators:
   - git:
       repoURL: "https://gitea-gitea.apps.cluster-vx2f5.vx2f5.sandbox784.opentlc.com/user14/mlops-gitops.git"
-      revision: main
+      revision: appset
       files:
       - path: toolings/**/config.yaml
   template:
@@ -37,11 +37,11 @@ spec:
       sources:
         - ref: app-values
           repoURL: "https://gitea-gitea.apps.cluster-vx2f5.vx2f5.sandbox784.opentlc.com/user14/mlops-gitops.git"
-          targetRevision: main
+          targetRevision: appset
         - helm:
             valueFiles:
               - $app-values/toolings/{{ .name }}/config.yaml 
-          path: charts/{{ .name }} 
+          path: {{ .chart_name }} 
           repoURL: {{ .repo_url }} 
           targetRevision: main
       syncPolicy:
