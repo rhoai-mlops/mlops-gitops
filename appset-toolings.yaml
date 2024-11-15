@@ -40,7 +40,7 @@ spec:
           targetRevision: appset
         - helm:
             valueFiles:
-              - $app-values/toolings/{{ .name }}/config.yaml 
+              - $app-values/toolings/{{ .path.basename }}/config.yaml 
           path: {{ .chart_name }} 
           repoURL: {{ .repo_url }} 
           targetRevision: main
