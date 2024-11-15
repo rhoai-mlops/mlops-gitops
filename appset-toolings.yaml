@@ -32,7 +32,7 @@ spec:
       destination:
         server: https://kubernetes.default.svc
         namespace: <USER_NAME>-mlops
-      project: default
+      project: mlops-toolings-project
       sources:
         - ref: app-values
           repoURL: "https://gitea-gitea.<CLUSTER_DOMAIN>/<USER_NAME>/mlops-gitops.git"

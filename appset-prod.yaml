@@ -32,7 +32,7 @@ spec:
       destination:
         server: https://kubernetes.default.svc
         namespace: <USER_NAME>-mlops
-      project: default
+      project: jukebox-prod-appset
       sources:
         - ref: app-values # custom values, override values git repo pointer
           repoURL: "https://gitea-gitea.<CLUSTER_DOMAIN>/<USER_NAME>/mlops-gitops.git"
