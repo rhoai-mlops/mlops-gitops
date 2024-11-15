@@ -1,0 +1,52 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: mlops-toolings-project
+spec:
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  destinations:
+  - namespace: '*'
+    server: '*'
+  sourceRepos:
+  - '*'
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: mlops-toolings-appset
+spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  generators:
+  - git:
+      repoURL: "https://gitea-gitea.apps.cluster-vx2f5.vx2f5.sandbox784.opentlc.com/user14/mlops-gitops.git"
+      revision: main
+      files:
+      - path: toolings/**/config.yaml
+  template:
+    metadata:
+      name: "{{ .name }}" 
+    spec:
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: <USER_NAME>-mlops
+      project: default
+      sources:
+        - ref: app-values
+          repoURL: "https://gitea-gitea.apps.cluster-vx2f5.vx2f5.sandbox784.opentlc.com/user14/mlops-gitops.git"
+          targetRevision: main
+        - helm:
+            valueFiles:
+              - $app-values/toolings/{{ .name }}/config.yaml 
+          path: charts/{{ .name }} 
+          repoURL: {{ .repo_url }} 
+          targetRevision: main
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - Validate=true

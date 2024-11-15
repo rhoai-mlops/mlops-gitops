@@ -1,7 +1,0 @@
----
-release: "prod"
-##############
-# Argo Apps declaration
-#############
-applications:
-  # Jukebox

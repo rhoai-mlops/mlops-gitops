@@ -7,3 +7,5 @@ This repository contains a chart to deploy an App of Apps that will deploy the f
 
 
 
+# Different projects for tooling & deployment 
+# multi cluster experience (here be dragons section)
