@@ -3,3 +3,4 @@ repo_url: https://gitea-gitea.apps.cluster-vx2f5.vx2f5.sandbox784.opentlc.com/us
 buckets:
   - name: pipeline
   - name: models
+  - name: tryingappset
