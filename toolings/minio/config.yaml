@@ -1,0 +1,4 @@
+chart_name: minio
+buckets:
+  - name: pipeline
+  - name: models

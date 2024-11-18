@@ -1,0 +1,12 @@
+chart_name: bootstrap
+bindings: &binds
+  - name: USER_NAME
+    kind: User
+    role: admin
+namespaces:
+  - name: USER_NAME-mlops
+    bindings: *binds
+  - name: USER_NAME-test
+    bindings: *binds
+  - name: USER_NAME-prod
+    bindings: *binds

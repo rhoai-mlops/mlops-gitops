@@ -1,0 +1,51 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: jukebox-prod-project
+spec:
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  destinations:
+  - namespace: '*'
+    server: '*'
+  sourceRepos:
+  - '*'
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: jukebox-prod-appset
+spec:
+  goTemplate: true
+  generators:
+  - git:
+      repoURL: "https://gitea-gitea.CLUSTER_DOMAIN/USER_NAME/mlops-gitops.git"
+      revision: main
+      files:
+      - path: model-deployments/prod/**/config.yaml
+  template:
+    metadata:
+      name: "{{ .path.basename }}"
+    spec:
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: USER_NAME-prod
+      project: jukebox-prod-appset
+      sources:
+        - ref: app-values # custom values, override values git repo pointer
+          repoURL: "https://gitea-gitea.CLUSTER_DOMAIN/USER_NAME/mlops-gitops.git"
+          targetRevision: main
+        - helm:
+            valueFiles:
+              - $app-values/model-deployments/prod/{{ .path.basename }}/config.yaml  # override values file
+          path: 'charts/{{ .chart_name }}'
+          repoURL: '{{ .repo_url | default "https://gitea-gitea.CLUSTER_DOMAIN/USER_NAME/mlops-helmcharts.git" }}' # helm charts
+          targetRevision: main
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - Validate=true
