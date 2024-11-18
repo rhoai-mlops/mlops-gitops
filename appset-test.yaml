@@ -24,7 +24,7 @@ spec:
       repoURL: "https://gitea-gitea.CLUSTER_DOMAIN/USER_NAME/mlops-gitops.git"
       revision: main
       files:
-      - path: model-deployment/test/**/config.yaml
+      - path: model-deployments/test/**/config.yaml
   template:
     metadata:
       name: "{{ .path.basename }}"
