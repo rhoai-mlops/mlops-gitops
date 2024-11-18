@@ -27,7 +27,7 @@ spec:
       - path: model-deployments/test/**/config.yaml
   template:
     metadata:
-      name: "{{ .path.basename }}"
+      name: "{{ .path.basename }}-test"
     spec:
       destination:
         server: https://kubernetes.default.svc

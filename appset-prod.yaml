@@ -27,12 +27,12 @@ spec:
       - path: model-deployments/prod/**/config.yaml
   template:
     metadata:
-      name: "{{ .path.basename }}"
+      name: "{{ .path.basename }}-prod"
     spec:
       destination:
         server: https://kubernetes.default.svc
         namespace: USER_NAME-prod
-      project: jukebox-prod-appset
+      project: jukebox-prod-project
       sources:
         - ref: app-values # custom values, override values git repo pointer
           repoURL: "https://gitea-gitea.CLUSTER_DOMAIN/USER_NAME/mlops-gitops.git"
