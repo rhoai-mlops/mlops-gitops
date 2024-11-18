@@ -39,7 +39,7 @@ spec:
           targetRevision: main
         - helm:
             valueFiles:
-              - $app-values/model-deployment/test/{{ .path.basename }}/config.yaml 
+              - $app-values/model-deployments/test/{{ .path.basename }}/config.yaml 
           path: 'charts/{{ .chart_name }}'
           repoURL: '{{ .repo_url | default "https://gitea-gitea.CLUSTER_DOMAIN/USER_NAME/mlops-helmcharts.git" }}'
           targetRevision: main
