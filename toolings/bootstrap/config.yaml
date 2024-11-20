@@ -1,4 +1,4 @@
-chart_name: bootstrap
+chart_path: charts/bootstrap
 bindings: &binds
   - name: USER_NAME
     kind: User
