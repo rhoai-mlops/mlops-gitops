@@ -1,4 +1,4 @@
-chart_name: minio
+chart_path: charts/minio
 buckets:
   - name: pipeline
   - name: models
