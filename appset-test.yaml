@@ -45,7 +45,7 @@ spec:
           targetRevision: '{{ .target_revision | default "main" }}'
       syncPolicy:
         automated:
-          prune: true
+          prune: false
           selfHeal: true
         syncOptions:
           - Validate=true
