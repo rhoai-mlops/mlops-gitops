@@ -31,7 +31,7 @@ spec:
     spec:
       destination:
         server: https://kubernetes.default.svc
-        namespace: USER_NAME-mlops
+        namespace: USER_NAME-toolings
       project: mlops-toolings-project
       sources:
         - ref: app-values
